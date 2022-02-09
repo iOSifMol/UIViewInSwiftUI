@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504AB47E27B440C7003155BE /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AB47D27B440C7003155BE /* CustomProgressView.swift */; };
 		50BA0E3327B193BC00EC6B3E /* UIViewInSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0E3227B193BC00EC6B3E /* UIViewInSwiftUIApp.swift */; };
 		50BA0E3527B193BC00EC6B3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0E3427B193BC00EC6B3E /* ContentView.swift */; };
 		50BA0E3727B193BE00EC6B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BA0E3627B193BE00EC6B3E /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		504AB47D27B440C7003155BE /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		50BA0E2F27B193BC00EC6B3E /* UIViewInSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIViewInSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BA0E3227B193BC00EC6B3E /* UIViewInSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewInSwiftUIApp.swift; sourceTree = "<group>"; };
 		50BA0E3427B193BC00EC6B3E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				50BA0E3227B193BC00EC6B3E /* UIViewInSwiftUIApp.swift */,
+				504AB47D27B440C7003155BE /* CustomProgressView.swift */,
 				50BA0E3427B193BC00EC6B3E /* ContentView.swift */,
 				50BA0E3627B193BE00EC6B3E /* Assets.xcassets */,
 				50BA0E3827B193BE00EC6B3E /* Preview Content */,
@@ -139,6 +142,7 @@
 			files = (
 				50BA0E3527B193BC00EC6B3E /* ContentView.swift in Sources */,
 				50BA0E3327B193BC00EC6B3E /* UIViewInSwiftUIApp.swift in Sources */,
+				504AB47E27B440C7003155BE /* CustomProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
