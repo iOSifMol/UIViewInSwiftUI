@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		504AB47E27B440C7003155BE /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504AB47D27B440C7003155BE /* CustomProgressView.swift */; };
+		50AF72B327B4E14000C716DC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AF72B227B4E14000C716DC /* ViewModel.swift */; };
+		50AF72B527B4E17800C716DC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 50AF72B427B4E17800C716DC /* LICENSE */; };
 		50BA0E3327B193BC00EC6B3E /* UIViewInSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0E3227B193BC00EC6B3E /* UIViewInSwiftUIApp.swift */; };
 		50BA0E3527B193BC00EC6B3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0E3427B193BC00EC6B3E /* ContentView.swift */; };
 		50BA0E3727B193BE00EC6B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BA0E3627B193BE00EC6B3E /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		504AB47D27B440C7003155BE /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		50AF72B227B4E14000C716DC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		50AF72B427B4E17800C716DC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		50BA0E2F27B193BC00EC6B3E /* UIViewInSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIViewInSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BA0E3227B193BC00EC6B3E /* UIViewInSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewInSwiftUIApp.swift; sourceTree = "<group>"; };
 		50BA0E3427B193BC00EC6B3E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +41,7 @@
 		50BA0E2627B193BC00EC6B3E = {
 			isa = PBXGroup;
 			children = (
+				50AF72B427B4E17800C716DC /* LICENSE */,
 				50BA0E3127B193BC00EC6B3E /* UIViewInSwiftUI */,
 				50BA0E3027B193BC00EC6B3E /* Products */,
 			);
@@ -55,6 +60,7 @@
 			children = (
 				50BA0E3227B193BC00EC6B3E /* UIViewInSwiftUIApp.swift */,
 				504AB47D27B440C7003155BE /* CustomProgressView.swift */,
+				50AF72B227B4E14000C716DC /* ViewModel.swift */,
 				50BA0E3427B193BC00EC6B3E /* ContentView.swift */,
 				50BA0E3627B193BE00EC6B3E /* Assets.xcassets */,
 				50BA0E3827B193BE00EC6B3E /* Preview Content */,
@@ -128,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50AF72B527B4E17800C716DC /* LICENSE in Resources */,
 				50BA0E3A27B193BE00EC6B3E /* Preview Assets.xcassets in Resources */,
 				50BA0E3727B193BE00EC6B3E /* Assets.xcassets in Resources */,
 			);
@@ -143,6 +150,7 @@
 				50BA0E3527B193BC00EC6B3E /* ContentView.swift in Sources */,
 				50BA0E3327B193BC00EC6B3E /* UIViewInSwiftUIApp.swift in Sources */,
 				504AB47E27B440C7003155BE /* CustomProgressView.swift in Sources */,
+				50AF72B327B4E14000C716DC /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,13 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import SwiftUI
+import Foundation
 
-@main
-struct UIViewInSwiftUIApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView(viewModel: ViewModel())
-        }
+final class ViewModel: ObservableObject {
+  private let maxProgress: Float = 100
+  @Published var progress: Float = 0 {
+    didSet {
+      print("New progress: \(progress)")
     }
+  }
+  var progressText: String {
+    get {
+     "\(Int(progress * 100))"
+    }
+    set {
+      var floatValue = Float(newValue) ?? 0
+      floatValue = floatValue > maxProgress ? maxProgress : floatValue
+      progress = floatValue / maxProgress
+    }
+  }
 }
