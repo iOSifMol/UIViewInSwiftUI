@@ -23,14 +23,19 @@
 import UIKit
 import SwiftUI
 
+protocol ProgressViewDelegate {
+  func didPressUpButton()
+  func didPressDownButton()
+}
+
 final class CustomProgressView: UIView {
   var progress: Float {
     get { slider.value }
     set { slider.value = newValue }
   }
-  private let slider = UISlider(frame: .zero)
-  private let upButton = UIButton(type: .custom)
-  private let downButton = UIButton(type: .custom)
+  let slider = UISlider(frame: .zero)
+  let upButton = UIButton(type: .custom)
+  let downButton = UIButton(type: .custom)
   // metrics
   private static let buttonSize = CGSize(width: 36, height: 36)
   private static let sliderWidth: CGFloat = 130
@@ -41,28 +46,15 @@ final class CustomProgressView: UIView {
   init(frame: CGRect = .zero, progress: Float = 0) {
     super.init(frame: frame)
   
-    setupView()
     self.progress = progress
+    setupView()
   }
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     setupView()
   }
-  
-  // MARK: - Actions Methods
-  @objc private func didChangeProgress(_ slider: UISlider) {
-    print("Did change progress to: \(slider.value)")
-  }
-  
-  @objc private func didPressUpButton(_ button: UIButton) {
-    print("Did press up")
-  }
-  
-  @objc private func didPressDownButton(_ button: UIButton) {
-    print("Did press down")
-  }
-  
+
   // MARK: - Setup view
   private func setupView() {
     setupSlider()
@@ -71,7 +63,6 @@ final class CustomProgressView: UIView {
   }
   
   private func setupSlider() {
-    slider.addTarget(self, action: #selector(didChangeProgress(_:)), for: .valueChanged)
     addSubview(slider)
     slider.translatesAutoresizingMaskIntoConstraints = false
     slider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -82,7 +73,6 @@ final class CustomProgressView: UIView {
   private func setupUpButton() {
     upButton.setTitle("⬆️", for: .normal)
     upButton.setTitleColor(UIColor.systemBlue, for: .normal)
-    upButton.addTarget(self, action: #selector(didPressUpButton(_:)), for: .touchUpInside)
     addSubview(upButton)
     upButton.translatesAutoresizingMaskIntoConstraints = false
     upButton.widthAnchor.constraint(equalToConstant: Self.buttonSize.width).isActive = true
@@ -94,7 +84,6 @@ final class CustomProgressView: UIView {
   private func setupDownButton() {
     downButton.setTitle("⬇️", for: .normal)
     downButton.setTitleColor(UIColor.systemBlue, for: .normal)
-    downButton.addTarget(self, action: #selector(didPressDownButton(_:)), for: .touchUpInside)
     addSubview(downButton)
     downButton.translatesAutoresizingMaskIntoConstraints = false
     downButton.widthAnchor.constraint(equalToConstant: Self.buttonSize.width).isActive = true
@@ -102,18 +91,53 @@ final class CustomProgressView: UIView {
     downButton.topAnchor.constraint(equalTo: upButton.bottomAnchor).isActive = true
     downButton.centerXAnchor.constraint(equalTo: upButton.centerXAnchor).isActive = true
   }
-
 }
 
 // MARK: - SwiftUI Representation
 struct ProgressView: UIViewRepresentable {
   var progress: Float
+  var delegate: ProgressViewDelegate?
+  var progressChanged: (_ progress: Float) -> Void
   
   func makeUIView(context: UIViewRepresentableContext<ProgressView>) -> CustomProgressView {
-    CustomProgressView(progress: progress)
+    let customProgressView = CustomProgressView(progress: progress)
+    customProgressView.slider.addTarget(context.coordinator,
+                                        action: #selector(Coordinator.didChangeProgress(_:)), for: .valueChanged)
+    customProgressView.upButton.addTarget(context.coordinator,
+                                          action: #selector(Coordinator.didPressUpButton(_:)), for: .touchUpInside)
+    customProgressView.downButton.addTarget(context.coordinator,
+                                            action: #selector(Coordinator.didPressDownButton(_:)), for: .touchUpInside)
+    return customProgressView
   }
   
   func updateUIView(_ uiView: CustomProgressView, context: UIViewRepresentableContext<ProgressView>) {
     uiView.progress = progress
+    context.coordinator.progressView.progress = progress
+  }
+  
+  func makeCoordinator() -> Coordinator {
+    Coordinator(self)
+  }
+  
+  // MARK: Coordinator
+  class Coordinator {
+    var progressView: ProgressView
+    
+    init(_ progressView: ProgressView) {
+      self.progressView = progressView
+    }
+    
+    // MARK: - Actions Methods
+    @objc func didChangeProgress(_ slider: UISlider) {
+      progressView.progressChanged(slider.value)
+    }
+    
+    @objc func didPressUpButton(_ button: UIButton) {
+      progressView.delegate?.didPressUpButton()
+    }
+    
+    @objc func didPressDownButton(_ button: UIButton) {
+      progressView.delegate?.didPressDownButton()
+    }
   }
 }

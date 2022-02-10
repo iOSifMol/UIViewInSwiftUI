@@ -24,19 +24,26 @@ import Foundation
 
 final class ViewModel: ObservableObject {
   private let maxProgress: Float = 100
-  @Published var progress: Float = 0 {
-    didSet {
-      print("New progress: \(progress)")
-    }
-  }
+  @Published var progress: Float = 0
   var progressText: String {
-    get {
-     "\(Int(progress * 100))"
-    }
-    set {
-      var floatValue = Float(newValue) ?? 0
-      floatValue = floatValue > maxProgress ? maxProgress : floatValue
-      progress = floatValue / maxProgress
-    }
+    get { "\(Int(progress * 100))" }
+    set { setNewProgress((Float(newValue) ?? 0) / maxProgress) }
+  }
+  
+  private func setNewProgress(_ progress: Float) {
+    var value = min(progress, 1)
+    value = max(0, value)
+    self.progress = value
+  }
+}
+
+// MARK: - ProgressViewDelegate
+extension ViewModel: ProgressViewDelegate {
+  func didPressUpButton() {
+    setNewProgress(progress + 0.1)
+  }
+  
+  func didPressDownButton() {
+    setNewProgress(progress - 0.1)
   }
 }

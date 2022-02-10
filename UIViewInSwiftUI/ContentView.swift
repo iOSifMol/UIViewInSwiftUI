@@ -27,8 +27,10 @@ struct ContentView: View {
   
     var body: some View {
       HStack {
-        ProgressView(progress: viewModel.progress)
-          .frame(width: CustomProgressView.size.width, height: CustomProgressView.size.height)
+        ProgressView(progress: viewModel.progress, delegate: viewModel) { progress in
+          viewModel.progress = progress
+        }
+        .frame(width: CustomProgressView.size.width, height: CustomProgressView.size.height)
         textField
       }
       .padding([.leading, .trailing], 20)
@@ -40,6 +42,7 @@ struct ContentView: View {
       TextField("progress", text: $viewModel.progressText)
         .font(Font.title)
         .frame(height: 30)
+        .padding(.top, -26)
         .keyboardType(.numberPad)
       Rectangle() // underline
         .frame(height: 1)
