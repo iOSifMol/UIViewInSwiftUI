@@ -9,5 +9,6 @@ Progress view it change the value of text filed, on the other hand the text file
  
 # Example:
 
-https://user-images.githubusercontent.com/31770066/153480403-d506f9d3-5867-4a97-aef0-8247329c8964.mov
+![UIView_swiftUI_gif](https://user-images.githubusercontent.com/31770066/153535914-72b2b86e-31a1-4d02-925e-30913f932343.gif)
+
 
