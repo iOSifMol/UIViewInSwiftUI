@@ -1,11 +1,11 @@
 # UIViewInSwiftUI
 A small project explaining how to embede an UIView in SwiftUI.
-Also in implements intercation in both ways.
+Also it implements intercation in both ways.
 
 # UI wise
 It implements a custom progress view as a subclass of UIView, that contains a slider and two buttons (up and down).
 Then it embeds this UIView in SwiftUI next to a text field. Both, SwiftUI text field and custom progress view interacts with each other.
-Progress view it change the value of text filed, on the other hand the text filed it changes the value of the progress view.
+Progress slider changes the value of text filed, on the other hand the text filed changes the value of the progress view.
  
 # Example:
 
