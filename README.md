@@ -12,3 +12,5 @@ Progress slider changes the value of text filed, on the other hand the text file
 ![UIView_swiftUI_gif](https://user-images.githubusercontent.com/31770066/153535914-72b2b86e-31a1-4d02-925e-30913f932343.gif)
 
 
+More details you can find in this article:
+https://medium.com/@iOSifMol/embed-uiview-in-swiftui-define-communication-both-ways-122b84c75da8
